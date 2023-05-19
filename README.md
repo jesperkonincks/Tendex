@@ -16,7 +16,7 @@ Tendex is a robust and efficient data extraction tool specifically designed to h
 ```bash
 git clone https://github.com/yourgithubusername/Tendex.git
 cd Tendex
-pip install -r requirements.txt
+pip install -r requirements.txt```
 
 ## Usage
 change the 'year_list' to the years that you want to retrieve.
