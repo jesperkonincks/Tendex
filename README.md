@@ -22,5 +22,7 @@ pip install -r requirements.txt
 ## Usage
 change the 'year_list' to the years that you want to retrieve.
 
+Then run the extract.py file
+
 ## License
 Tendex is licensed under the MIT License.
