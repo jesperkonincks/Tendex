@@ -2,7 +2,9 @@ import os
 import json, xmltodict
 
 def download_files():
+    # Change this list to the years that you want to retrieve data from
     year_list = [2020, 2021, 2022, 2023]
+
     ftp = ftp_connection(url='ted.europa.eu', user='guest', passwd='guest')
     ftp.cwd('daily-packages')
     years = ftp.nlst()
@@ -23,12 +25,16 @@ def download_files():
                     for filename in files:
                         file_path = os.path.join(save_directory, filename)
                         file_full_path = os.path.join(os.getcwd(), file_path)
+                        # Save the file
                         with open(file_full_path, 'wb') as file:
                             ftp.retrbinary('RETR ' + filename, file.write)
+                        # Extract the folders
                         if filename.endswith('.tar.gz'):
                             extract_tar_gz(file_full_path, save_directory)
                             os.remove(file_full_path)
 
+                    # Convert XML to JSON format
+                    # Might not be needed for some usecases
                     process_extracted_files(save_directory)
 
                     ftp.cwd("..")
