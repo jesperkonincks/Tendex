@@ -3,7 +3,7 @@ import json, xmltodict
 
 def download_files():
     # Change this list to the years that you want to retrieve data from
-    year_list = [2020, 2021, 2022, 2023]
+    year_list = [2023]
 
     ftp = ftp_connection(url='ted.europa.eu', user='guest', passwd='guest')
     ftp.cwd('daily-packages')
